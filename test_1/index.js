@@ -11,10 +11,19 @@
  * @returns  {Object[]}
  */
 module.exports = function test1() {
-  let results;
-
-  // Write your code here.  The pre-written lines above and below are just suggestions, feel free to delete
-  // them and start fresh.
+  let results = [];
+  // get the json file
+  const test_data = require('./test_data.json');
+  // loop through the json adding fields to the results'
+  for (let character in test_data) {
+    const new_obj = {
+      'first_name': test_data[character].first_name,
+      'last_name': test_data[character].last_name,
+      'catchphrase': test_data[character].catchphrase,
+      'example': test_data[character].first_name+' '+test_data[character].last_name+' says '+test_data[character].catchphrase
+    };
+    results.push(new_obj);
+  }
 
   return results;
 };
